@@ -70,8 +70,9 @@ if(CATKIN_MAKE)
         unitree_legged_msgs
     )
     catkin_package(
-        CATKIN_DEPENDS 
-        unitree_legged_msgs 
+        INCLUDE_DIRS include
+        LIBRARIES unitree_guide
+        CATKIN_DEPENDS unitree_legged_msgs 
     )
 endif()
 
@@ -118,6 +119,8 @@ file(GLOB_RECURSE SRC_LIST
     "src/*/*.cpp"
     "src/*/*.cc"
 )
+
+add_library(${PROJECT_NAME} ${SRC_LIST})
 
 add_executable(junior_ctrl src/main.cpp ${SRC_LIST})
 if(CATKIN_MAKE)
