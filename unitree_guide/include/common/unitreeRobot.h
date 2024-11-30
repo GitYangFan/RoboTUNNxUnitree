@@ -58,4 +58,10 @@ public:
     ~Go1Robot(){};
 };
 
+class B2Robot : public QuadrupedRobot{
+public:
+    B2Robot();
+    ~B2Robot(){};
+};
+
 #endif  // UNITREEROBOT_H
