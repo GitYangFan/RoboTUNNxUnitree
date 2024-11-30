@@ -1,4 +1,4 @@
-# Intro
+# RoboTUNN x Unitree
 
 This is a quadruped robot controller modified for B2 based on unitree_guide. It also contains a B2 robot model with a hokuyu 2D Lidar for 2D SLAM. The original Readme is as follows:
 
