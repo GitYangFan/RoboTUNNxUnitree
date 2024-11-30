@@ -31,6 +31,15 @@ State_Trotting::State_Trotting(CtrlComponents *ctrlComp)
     _KdSwing = Vec3(10, 10, 10).asDiagonal();
 #endif
 
+#ifdef ROBOT_TYPE_B2
+    _Kpp = Vec3(150, 150, 150).asDiagonal();
+    _Kdp = Vec3(25, 25, 25).asDiagonal();
+    _kpw = 200; 
+    _Kdw = Vec3(30, 30, 30).asDiagonal();
+    _KpSwing = Vec3(800, 800, 800).asDiagonal();
+    _KdSwing = Vec3(40, 40, 40).asDiagonal();
+#endif
+
     _vxLim = _robModel->getRobVelLimitX();
     _vyLim = _robModel->getRobVelLimitY();
     _wyawLim = _robModel->getRobVelLimitYaw();
@@ -171,13 +180,13 @@ void State_Trotting::calcTau(){
     _ddPcd = _Kpp * _posError + _Kdp * _velError;
     _dWbd  = _kpw*rotMatToExp(_Rd*_G2B_RotMat) + _Kdw * (_wCmdGlobal - _lowState->getGyroGlobal());
 
-    _ddPcd(0) = saturation(_ddPcd(0), Vec2(-3, 3));
-    _ddPcd(1) = saturation(_ddPcd(1), Vec2(-3, 3));
-    _ddPcd(2) = saturation(_ddPcd(2), Vec2(-5, 5));
+    // _ddPcd(0) = saturation(_ddPcd(0), Vec2(-300, 300)); // default Vec2(-3, 3)
+    // _ddPcd(1) = saturation(_ddPcd(1), Vec2(-300, 300)); // default Vec2(-3, 3)
+    // _ddPcd(2) = saturation(_ddPcd(2), Vec2(-500, 500)); // default Vec2(-5, 5)
 
-    _dWbd(0) = saturation(_dWbd(0), Vec2(-40, 40));
-    _dWbd(1) = saturation(_dWbd(1), Vec2(-40, 40));
-    _dWbd(2) = saturation(_dWbd(2), Vec2(-10, 10));
+    // _dWbd(0) = saturation(_dWbd(0), Vec2(-400, 400)); // default Vec2(-40, 40)
+    // _dWbd(1) = saturation(_dWbd(1), Vec2(-400, 400)); // default Vec2(-40, 40)
+    // _dWbd(2) = saturation(_dWbd(2), Vec2(-100, 100)); // default Vec2(-10, 10)
 
     _forceFeetGlobal = - _balCtrl->calF(_ddPcd, _dWbd, _B2G_RotMat, _posFeet2BGlobal, *_contact);
 
