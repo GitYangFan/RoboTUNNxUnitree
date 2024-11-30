@@ -1,5 +1,8 @@
+# Intro
+
 This is a quadruped robot controller modified for B2 based on unitree_guide. It also contains a B2 robot model with a hokuyu 2D Lidar for 2D SLAM. The original Readme is as follows:
 
+# 
 
 A more detailed unitree_guide document is available at unitree [developer site](https://support.unitree.com/home/zh/Algorithm_Practice).( only Chinese version now )
 
