@@ -2,13 +2,6 @@
 
 This is a quadruped robot controller modified for B2 based on unitree_guide. It also contains a B2 robot model with a hokuyu 2D Lidar for 2D SLAM. The original Readme is as follows:
 
-# 
-
-A more detailed unitree_guide document is available at unitree [developer site](https://support.unitree.com/home/zh/Algorithm_Practice).( only Chinese version now )
-
-# Overview
-
-The unitree_guide is an open source project for controlling the quadruped robot of Unitree Robotics, and it is also the software project accompanying [《四足机器人控制算法--建模、控制与实践》](https://detail.tmall.com/item.htm?spm=a212k0.12153887.0.0.5487687dBgiovR&id=704510718152) published by Unitree Robotics.
 
 # Quick Start
 The following will quickly introduce the use of unitree_guide in the gazebo simulator. For more usage, please refer to 《四足机器人控制算法--建模、控制与实践》.
